@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Header = () => {
-    return<div>ああああ</div>
+    return<div>いいいい</div>
 };
 
 export default Header;
