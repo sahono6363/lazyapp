@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React from "react";
 
-const GoButton = () => {
-  return <button>Go!</button>;
+const GoButton = ({ onClick }) => {
+  return <button onClick={onClick}>Go!</button>
 };
 
 export default GoButton;

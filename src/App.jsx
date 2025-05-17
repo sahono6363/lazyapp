@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import GoButton from "./Gobutton";
-import Category from "./Input/Category";
-import Title from "./Input/Title";
+import Input from "./Input/Input";
+import { Category } from "@mui/icons-material";
 
 function App() {
+  const [input, setInput] = useState({ category: 0, title: "", from: "" });
+  const [list, setlist] = useState([]);
+
+  const handleGo = () => {
+    if (input.title === "" || input.from === "") return;
+    setlist([...list, { ...input }]);
+    setInput({ category: 0, title: "", from: "" });
+  };
+
   return (
     <div>
       <Header />
-      <Category />
-      <Title/>
-      <GoButton />
+      <Input input={input} setInput={setInput} list={list} />
+      <GoButton onClick={handleGo} />
     </div>
   );
 }
