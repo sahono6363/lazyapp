@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useState } from "react";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import Box from "@mui/material/Box";
 
-const Categories = ["A", "B", "C"];
+// FontAwesomeのCDNをindex.htmlで読み込んでいる場合は<i>タグ＋classNameでOK
+const Categories = [
+  { icon: "fa-solid fa-music" },
+  { icon: "fa-solid fa-film" },
+  { icon: "fa-solid fa-gamepad" },
+  { icon: "fa-solid fa-book-open" },
+];
 
-const Category = () => { 
+const Category = () => {
+  const [selected, setSelected] = useState(0);
+
   return (
-    <>
-      <select>
-        {Categories.map((category) => {
-          return <option key={category}>{category}</option>;
-        })}
-      </select>
-    </>
+    <Box>
+      <Select
+        value={selected}
+        onChange={(e) => setSelected(Number(e.target.value))}
+        fullWidth
+      >
+        {Categories.map((category, idx) => (
+          <MenuItem value={idx} key={category.label}>
+            <i className={category.icon}></i>
+          </MenuItem>
+        ))}
+      </Select>
+    </Box>
   );
-}
+};
 
 export default Category;
