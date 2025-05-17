@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const Categories = ["A", "B", "C"];
 
-const Category = () => { 
+const Category = () => {
   return (
     <>
       <select>
@@ -12,6 +12,6 @@ const Category = () => {
       </select>
     </>
   );
-}
+};
 
 export default Category;

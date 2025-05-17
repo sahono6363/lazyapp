@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
-import Category from "./Category";
-import Title from "./Title";
+import GoButton from "./Gobutton";
+import Category from "./Input/Category";
+import Title from "./Input/Title";
 
 function App() {
   return (
     <div>
       <Header />
       <Category />
-      <Title />
+      <Title/>
+      <GoButton />
     </div>
   );
 }
 
 export default App;
-
