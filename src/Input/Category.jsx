@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import MovieIcon from "@mui/icons-material/Movie";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 
-const Categories = ["A", "B", "C"];
+const Categories = [
+  { icon: <MusicNoteIcon /> },
+  { icon: <MovieIcon /> },
+  { icon: <SportsEsportsIcon /> },
+  { icon: <MenuBookIcon /> },
+];
 
 const Category = () => {
+  const [selected, setSelected] = useState(0);
+
   return (
-    <>
-      <select>
-        {Categories.map((category) => {
-          return <option key={category}>{category}</option>;
-        })}
-      </select>
-    </>
+    <Box>
+      <Select
+        value={selected}
+        onChange={(e) => setSelected(Number(e.target.value))}
+        renderValue={(selectedIdx) => (
+          <span>
+            <span>{Categories[selectedIdx].icon}</span>
+          </span>
+        )}
+      >
+        {Categories.map((category, idx) => (
+          <MenuItem value={idx} key={category.label}>
+            {category.icon}
+          </MenuItem>
+        ))}
+      </Select>
+    </Box>
   );
 };
 
