@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import GoButton from "./Gobutton";
+import GoButton from "./GoButton";
 import Category from "./Input/Category";
 import Title from "./Input/Title";
 
