@@ -7,17 +7,14 @@ import MovieIcon from "@mui/icons-material/Movie";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
-const Categories = [
+export const Categories = [
   { icon: <MusicNoteIcon /> },
   { icon: <MovieIcon /> },
   { icon: <SportsEsportsIcon /> },
   { icon: <MenuBookIcon /> },
 ];
 
-const Category = () => {
-  const [selected, setSelected] = useState(0);
-
-  return (
+const Category = ({selected, setSelected, categories}) => (
     <Box>
       <Select
         value={selected}
@@ -36,6 +33,5 @@ const Category = () => {
       </Select>
     </Box>
   );
-};
 
 export default Category;
