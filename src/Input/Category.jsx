@@ -6,6 +6,7 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import MovieIcon from "@mui/icons-material/Movie";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import "./Category.css";
 
 export const Categories = [
   { icon: <MusicNoteIcon /> },
@@ -15,18 +16,19 @@ export const Categories = [
 ];
 
 const Category = ({selected, setSelected, categories}) => (
-    <Box>
-      <Select
+    <Box className="box">
+      <Select className="select"
         value={selected}
         onChange={(e) => setSelected(Number(e.target.value))}
         renderValue={(selectedIdx) => (
-          <span>
-            <span>{Categories[selectedIdx].icon}</span>
+          <span className="categories">
+            {Categories[selectedIdx].icon}
           </span>
         )}
       >
         {Categories.map((category, idx) => (
-          <MenuItem value={idx} key={category.label}>
+          <MenuItem className="menuitem"
+            value={idx} key={category.label}>
             {category.icon}
           </MenuItem>
         ))}
