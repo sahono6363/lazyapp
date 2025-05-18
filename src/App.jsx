@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Header from "./Header";
 import GoButton from "./GoButton";
 import Input from "./Input/Input";
 import { Categories } from "./Input/Category";
+import { loadList, saveList } from "./strage";
 
 function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
-  const [list, setlist] = useState([]);
+  const [list, setlist] = useState(loadList());
+
+  useEffect(() => {
+    saveList(list);
+  }, [list]);
 
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
