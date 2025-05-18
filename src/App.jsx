@@ -10,14 +10,14 @@ function App() {
 
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
-    setlist([...list, { ...input }]);
+    setlist([...list, { ...input, checked: false }]);
     setInput({ category: 0, title: "", from: "" });
   };
 
   return (
     <div>
       <Header />
-      <Input input={input} setInput={setInput} list={list} />
+      <Input input={input} setInput={setInput} list={list} setList={setlist}/>
       <GoButton onClick={handleGo} />
     </div>
   );
