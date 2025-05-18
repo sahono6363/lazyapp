@@ -1,5 +1,6 @@
 import React from "react";
-
+import HeaderButtonR from "./ButtonR";
+import HeaderButtonS from "./ButtonS";
 
 const Header = () => {
   return (
@@ -19,8 +20,8 @@ const Header = () => {
     >
       <span style={{ marginLeft: "10px" }}>Someday List</span>
       <div>
-        <button style={{ marginRight: "10px" }}>random</button>
-        <button style={{ marginRight: "10px" }}>select</button>
+        <HeaderButtonR>random</HeaderButtonR>
+        <HeaderButtonS>select</HeaderButtonS>
       </div>
     </header>
   );
