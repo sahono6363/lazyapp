@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Header from "./Header";
 import GoButton from "./GoButton";
 import Input from "./Input/Input";
-import { Category } from "@mui/icons-material";
+import { Categories } from "./Input/Category";
+import { loadList, saveList } from "./strage";
 
 function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
-  const [list, setlist] = useState([]);
+  const [list, setlist] = useState(loadList());
+
+  useEffect(() => {
+    saveList(list);
+  }, [list]);
 
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
@@ -19,6 +24,15 @@ function App() {
       <Header />
       <Input input={input} setInput={setInput} list={list} setList={setlist}/>
       <GoButton onClick={handleGo} />
+      <div>
+        {list.map((item, i) => (
+          <div key={i} >
+            {Categories[item.category].icon}
+            {item.title}
+            {item.from}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
