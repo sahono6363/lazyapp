@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import GoButton from "./GoButton";
 import Input from "./Input/Input";
-import { Category } from "@mui/icons-material";
+import { Categories } from "./Input/Category";
 
 function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
@@ -19,6 +19,15 @@ function App() {
       <Header />
       <Input input={input} setInput={setInput} list={list} />
       <GoButton onClick={handleGo} />
+      <div>
+        {list.map((item, i) => (
+          <div key={i} >
+            {Categories[item.category].icon}
+            {item.title}
+            {item.from}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
