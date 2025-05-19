@@ -3,7 +3,8 @@ import Header from "./Header";
 import GoButton from "./Input/GoButton";
 import Input from "./Input/Input";
 import { Categories } from "./Input/Category";
-import { loadList, saveList } from "./strage";
+import { loadList, saveList } from "./storage";
+import { removeItemFromList } from "./delete";
 
 function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
@@ -17,6 +18,10 @@ function App() {
     if (input.title === "" || input.from === "") return;
     setlist([...list, { ...input }]);
     setInput({ category: 0, title: "", from: "" });
+  };
+
+  const handleDelete = (index) => {
+    setlist(removeItemFromList(list, index));
   };
 
   return (
@@ -35,6 +40,7 @@ function App() {
             {Categories[item.category].icon}
             {item.title}
             {item.from}
+            <button onClick={() => handleDelete(i)}>削除</button>
           </div>
         ))}
       </div>

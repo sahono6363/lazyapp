@@ -1,7 +1,7 @@
 import Category from "./Category";
 import { Categories } from "./Category";
 import Title from "./Title";
-import From from "./from";
+import From from "./From";
 import GoButton from "./GoButton";
 
 const Input = ({ input, setInput, Categories, onGoClick }) => (
