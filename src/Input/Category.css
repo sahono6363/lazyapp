@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  color: black;
+}
+
+.select {
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.menuitem {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.categories {
+  font-size: 1.5rem;
+}

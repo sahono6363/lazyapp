@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import Header from "./Header";
-import GoButton from "./GoButton";
+import GoButton from "./Input/GoButton";
 import Input from "./Input/Input";
 import { Categories } from "./Input/Category";
 import { loadList, saveList } from "./storage";
@@ -27,11 +27,16 @@ function App() {
   return (
     <div>
       <Header />
-      <Input input={input} setInput={setInput} list={list} />
-      <GoButton onClick={handleGo} />
+      <Input
+        input={input}
+        setInput={setInput}
+        Categories={Categories}
+        onGoClick={handleGo}
+      />
+
       <div>
         {list.map((item, i) => (
-          <div key={i} >
+          <div key={i}>
             {Categories[item.category].icon}
             {item.title}
             {item.from}
