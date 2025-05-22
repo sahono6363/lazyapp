@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 import Header from "./Header";
 import GoButton from "./Input/GoButton";
 import Input from "./Input/Input";
+import "./App.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Categories } from "./Input/Category";
 import { loadList, saveList } from "./storage";
 import { removeItemFromList } from "./delete";
@@ -25,7 +27,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app">
       <Header />
       <Input
         input={input}
@@ -36,11 +38,13 @@ function App() {
 
       <div>
         {list.map((item, i) => (
-          <div key={i}>
-            {Categories[item.category].icon}
-            {item.title}
-            {item.from}
-            <button onClick={() => handleDelete(i)}>削除</button>
+          <div key={i} style={{ display: "flex" }}>
+            <div className="category2">{Categories[item.category].icon}</div>
+            <div className="title2">{item.title}</div>
+            <div className="from2">{item.from}</div>
+            <button className="button2" onClick={() => handleDelete(i)}>
+              <DeleteIcon />
+            </button>
           </div>
         ))}
       </div>
