@@ -7,9 +7,10 @@ const Header = () => {
     <header
       className="hachi-maru-pop-regular"
       style={{
-        backgroundColor: "lightgreen",
-        color: "black",
-        padding: "5px",
+        backgroundColor: "rgb(207, 128, 110)",
+        color: "rgb(255, 255, 255)",
+        height: "50px",
+        paddingBottom: "5px",
         textAlign: "center",
         fontSize: "25px",
         fontWeight: "bold",

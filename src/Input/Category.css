@@ -1,14 +1,18 @@
 .box {
   display: flex;
-  color: black;
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-left: 40px;
+  border: none;
 }
 
 .select {
-  width: 50px;
-  height: 50px;
-  background: #ffffff;
-  border-radius: 4px;
-  margin: 10px;
+  width: 76px;
+  height: 45px;
+  background: #ded9c7;
+  border-radius: 6px;
+  border: none;
+  padding-top: 5px;
 }
 
 .menuitem {
@@ -18,5 +22,9 @@
 }
 
 .categories {
-  font-size: 1.5rem;
+  color: #645f37;
 }
+.categories svg {
+  font-size: 30px;
+}
+
