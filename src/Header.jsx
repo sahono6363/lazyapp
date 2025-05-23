@@ -9,7 +9,7 @@ const Header = () => {
       style={{
         backgroundColor: "rgb(207, 128, 110)",
         color: "rgb(255, 255, 255)",
-        height: "50px",
+        height: "60px",
         paddingBottom: "5px",
         textAlign: "center",
         fontSize: "25px",
@@ -17,6 +17,7 @@ const Header = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        paddingLeft: "10px",
       }}
     >
       <span style={{ marginLeft: "10px" }}>Someday List</span>
