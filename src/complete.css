@@ -1,0 +1,17 @@
+.complete{
+    background-color:#ded9c7;
+   min-height: 100vh;
+   font-family: "Hachi Maru Pop";
+   display: flex;  
+   justify-content: center; 
+   
+  }
+  
+  .complete h1{
+    font-size: 35px; 
+    margin-left: -20px;   
+    margin-top: 15px;
+    color: #597e59;
+    font-weight: bolder;
+    margin-bottom: 15px;
+  }
