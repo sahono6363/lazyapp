@@ -22,11 +22,20 @@ function App() {
   return (
     <div>
       <Header />
-      <Input input={input} setInput={setInput} list={list} setList={setlist}/>
+      <Input input={input} setInput={setInput} list={list} git />
       <GoButton onClick={handleGo} />
       <div>
         {list.map((item, i) => (
-          <div key={i} >
+          <div key={i}>
+            <input
+              type="checkbox"
+              checked={item.checked}
+              onChange={() => {
+                const newList = [...list];
+                newList[i].checked = !newList[i].checked;
+                setlist(newList);
+              }}
+            />
             {Categories[item.category].icon}
             {item.title}
             {item.from}
