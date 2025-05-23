@@ -1,0 +1,30 @@
+.box {
+  display: flex;
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-left: 40px;
+  border: none;
+}
+
+.select {
+  width: 76px;
+  height: 45px;
+  background: #ded9c7;
+  border-radius: 6px;
+  border: none;
+  padding-top: 5px;
+}
+
+.menuitem {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.categories {
+  color: #645f37;
+}
+.categories svg {
+  font-size: 30px;
+}
+
