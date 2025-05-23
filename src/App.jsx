@@ -18,7 +18,7 @@ function App() {
 
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
-    setlist([...list, { ...input }]);
+    setlist([...list, { ...input, checked: false }]);
     setInput({ category: 0, title: "", from: "" });
   };
 
@@ -29,6 +29,7 @@ function App() {
   return (
     <div className="app">
       <Header />
+
       <Input
         input={input}
         setInput={setInput}
@@ -39,12 +40,22 @@ function App() {
       <div>
         {list.map((item, i) => (
           <div key={i} style={{ display: "flex" }}>
+          　<input
+              type="checkbox"
+              checked={item.checked}
+              onChange={() => {
+                const newList = [...list];
+                newList[i].checked = !newList[i].checked;
+                setlist(newList);
+              }}
+            />
             <div className="category2">{Categories[item.category].icon}</div>
             <div className="title2">{item.title}</div>
             <div className="from2">{item.from}</div>
             <button className="button2" onClick={() => handleDelete(i)}>
               <DeleteIcon />
             </button>
+
           </div>
         ))}
       </div>

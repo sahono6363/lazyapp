@@ -15,8 +15,10 @@ const Input = ({ input, setInput, Categories, onGoClick }) => (
       title={input.title}
       setTitle={(title) => setInput({ ...input, title })}
     />
-    <From from={input.from} setFrom={(from) => setInput({ ...input, from })} />
+    <From from={input.from} setFrom={(from) => setInput({ ...input, from })} /
+
     <GoButton onClick={onGoClick} />
+
   </div>
 );
 
