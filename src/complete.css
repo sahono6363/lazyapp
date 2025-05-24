@@ -19,43 +19,35 @@
 .category3 {
   display: flex;
   margin-top: 1.39vw;
-  margin-left: 1.39vw;
+  margin-left: 0.8vw;
 }
 
-.category3 svg {font-size: 2.78vw;}
+.category3 svg {font-size: 2.3vw;}
 
 .title3 {
   font-size: 1.39vw;
-  width: 17.36vw;
+  width: 31vw;
   margin-top: 1.39vw;
-  height: 2.78vw;
-  margin-left: 1.25vw;
-  margin-right: 1.25vw;
-  border-bottom: 0.14vw solid #645f37;
+  margin-left: 0.4vw;
+  border-bottom: 0.10vw solid #645f37;
 }
 
 .from3 {
-  font-size: 1.39vw;
-  width: 8.33vw;
-  margin-left: 0.35vw;
-  margin-top: 1.39vw;
-  height: 2.78vw;
-  border-bottom: 0.10vw solid  #6e6457;
+  font-size: 1.0vw;
+  width: 12vw;
+  margin-left: 3.3vw;
+  height: 1.8vw;
   padding-left: 0.69vw;
 }
 
 .button4 {
-  display: flex;
-  align-items: center;
-  margin-top: 1.39vw;
+  margin-top: 1.3vw;
   height: 2.78vw;
   font-size: 2.08vw;
   border-radius: 0.42vw;
-  margin-left: 0.35vw;
-  margin-right: 1.39vw;
   background: transparent;
   border: none;
-  color: #645f37;
+  color:#6e6457;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -67,18 +59,9 @@
   accent-color: #178270;
   color: #ffffff;
 }
-.impression2 {
-  font-size: 1.39vw;
-  width: 48.61vw;
-  font-family: "Hachi Maru Pop", cursive;
-  border: 0.14vw solid;
-  background: transparent;
-  color: rgb(207, 128, 110);
-  border-radius: 0.42vw;
-  margin-top: 0.56vw;
-  margin-bottom: 0.69vw;
-  min-height: 2.08vw;
-  margin-left: 3.82vw;
-  padding-left: 0.69vw;
-  padding-bottom: 0.35vw;
+
+.impression2{
+  margin-left: 3.7vw;
+  font-size: 1.1vw;
+  width: 34vw;
 }

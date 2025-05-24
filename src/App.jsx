@@ -7,7 +7,10 @@ import "./complete.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Categories } from "./Input/Category";
 import { loadList, saveList } from "./Backends/storage";
-import { loadCompletedList, saveCompletedList } from "./Backends/completestrage";
+import {
+  loadCompletedList,
+  saveCompletedList,
+} from "./Backends/completestrage";
 import { removeItemFromList } from "./delete";
 
 function App() {
@@ -38,9 +41,6 @@ function App() {
   };
 
   const handleDelete = (index) => {
-    const item = list[index];
-    const impression = impressions[index] || "";
-    setCompletedList([...completedList, { ...item, impression }]);
     setlist(list.filter((_, i) => i !== index));
     setImpressions((prev) => {
       const newObj = { ...prev };
@@ -51,7 +51,7 @@ function App() {
 
   const handleComplete = (index) => {
     const item = list[index];
-    const impression = impressions[index] || ""; 
+    const impression = impressions[index] || "";
     setCompletedList([...completedList, { ...item, impression }]);
     setlist(list.filter((_, i) => i !== index));
     setImpressions((prev) => {
@@ -78,7 +78,7 @@ function App() {
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
                   <div className="category2">
-                    {Categories[item.category].icon}
+                    {Categories[item.category]?.icon}
                   </div>
                   <div className="title2">{item.title}</div>
                   <div className="from2">{item.from}</div>
@@ -112,10 +112,10 @@ function App() {
                       />
                       <button
                         type="submit"
-                        className="button3"
+                        className="buttonS"
                         onClick={() => handleComplete(i)}
                       >
-                        OK
+                        →
                       </button>
                     </div>
                   )}
@@ -124,7 +124,7 @@ function App() {
             ))}
           </div>
           <div className="complete" style={{ flex: 1 }}>
-            <h1>---おわったやつ---</h1>
+            <h1>―おわったやつ―</h1>
             {completedList.map((item, i) => (
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
@@ -132,7 +132,7 @@ function App() {
                     {Categories[item.category].icon}
                   </div>
                   <div className="title3">{item.title}</div>
-                  <div className="from3">{item.from}</div>
+
                   <button
                     className="button4"
                     onClick={() => {
@@ -145,11 +145,10 @@ function App() {
                     <DeleteIcon />
                   </button>
                 </div>
-                <div>
-                  {item.impression && (
-                    <div className="impression">{item.impression}</div>
-                  )}
-                </div>
+                <div className="from3">From.{item.from}</div>
+                {item.impression && (
+                  <div className="impression2">{item.impression}</div>
+                )}
               </React.Fragment>
             ))}
           </div>
