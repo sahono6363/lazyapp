@@ -6,3 +6,4 @@ export function loadList() {
 export function saveList(list) {
   localStorage.setItem("lazyapp-list", JSON.stringify(list));
 }
+
