@@ -9,15 +9,15 @@ const Header = ({ list}) => {
       style={{
         backgroundColor: "#a2997f",
         color: "rgb(255, 255, 255)",
-        height: "60px",
-        paddingBottom: "5px",
+        height: "4.17vw",
+        paddingBottom: "0.35vw", 
         textAlign: "center",
-        fontSize: "25px",
+        fontSize: "1.74vw", 
         fontWeight: "bold",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        paddingLeft: "10px",
+        paddingLeft: "0.69vw",
       }}
     >
       <span style={{ marginLeft: "10px" }}>Someday List</span>

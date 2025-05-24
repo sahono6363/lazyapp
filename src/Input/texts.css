@@ -5,70 +5,67 @@
 }
 
 .title{
-    font-size: 20px;
-    width: 450px;
+    font-size: 1.39vw;
+    width: 31.25vw;
     font-family: "Hachi Maru Pop", cursive;
     border: none;
-    background:#cfdedf;
+    background: #cfdedf;
     color: #6e6457;
-    border-radius: 6px;
-    margin-top: 20px;
-    height: 40px;
-    margin-left: 5px;
-    padding-left: 10px; 
-    padding-bottom: 5px;
-    height: 40px;
+    border-radius: 0.42vw;
+    margin-top: 1.39vw;
+    height: 2.78vw;
+    margin-left: 0.35vw;
+    padding-left: 0.69vw; 
+    padding-bottom: 0.35vw;
 }
 
 .from{
-    padding-bottom: 5px;
-    padding-left: 10px;
-    font-size: 20px;
+    padding-bottom: 0.35vw;
+    padding-left: 0.69vw;
+    font-size: 1.39vw;
     font-family: "Hachi Maru Pop", cursive;
-    width: 120px;
+    width: 8.33vw;
     border: none;
-    background:#cfdedf;
+    background: #cfdedf;
     color: #6e6457;
-    margin-left: 5px;
-    margin-top: 20px;
-    height: 40px;
-    border-radius: 6px;
+    margin-left: 0.35vw;
+    margin-top: 1.39vw;
+    height: 2.78vw;
+    border-radius: 0.42vw;
 }
 
 .button{
-    padding-bottom: 5px;
-    margin-top: 20px;
-    height: 46px;
-    width: 46px;
-    font-size: 20px;
+    padding-bottom: 0.35vw;
+    margin-top: 1.39vw;
+    height: 3.19vw;
+    width: 3.19vw;
+    font-size: 1.39vw;
     font-weight: bolder;
     font-family: "Hachi Maru Pop", cursive;
-    background:#a2997f;
+    background: #a2997f;
     border: none;
-    border-radius: 6px;
-    margin-left: 5px;
+    border-radius: 0.42vw;
+    margin-left: 0.35vw;
     color: white;
     cursor: pointer;
     transition: 0s ease;
-    border: 2px solid #a2997f;
+    border: 0.14vw solid #a2997f;
     transition: 0.3s ease;
 }
 
 .button:hover{
     background: transparent;
     color: #a2997f;
-    border: 2px solid #a2997f;
+    border: 0.14vw solid #a2997f;
 }
 
 .title::placeholder,
 .from::placeholder {
-    
     color: #6e6457;
     opacity: 0.6;       
 }
 
 .title:focus,
-.from:focus
-{
-    outline: 2px solid #6e6457;
+.from:focus {
+    outline: 0.14vw solid #6e6457;
 }
