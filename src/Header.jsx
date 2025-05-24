@@ -3,7 +3,7 @@ import HeaderButtonR from "./ButtonR";
 import HeaderButtonS from "./ButtonS";
 import HeaderButtonA from "./ButtonA";
 
-const Header = ({ onSortByCategory }) => {
+const Header = ({ onToggleSort, isAlignMode }) => {
   return (
     <header
       className="hachi-maru-pop-regular"
@@ -24,8 +24,10 @@ const Header = ({ onSortByCategory }) => {
       <span style={{ marginLeft: "10px" }}>Someday List</span>
       <div>
         <HeaderButtonR>random</HeaderButtonR>
-        <HeaderButtonS >select</HeaderButtonS>
-        <HeaderButtonA onClick={onSortByCategory}>align</HeaderButtonA>
+        <HeaderButtonS>select</HeaderButtonS>
+        <HeaderButtonA onClick={onToggleSort}>
+          {isAlignMode ? "align" : "normal"}
+        </HeaderButtonA>
       </div>
     </header>
   );
