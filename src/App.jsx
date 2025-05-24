@@ -69,7 +69,7 @@ function App() {
                         className="impression"
                         placeholder="感想を入力"
                       />
-                      <button type="submit" className="button2">
+                      <button type="submit" className="button3">
                         →
                       </button>
                     </div>
