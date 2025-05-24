@@ -142,3 +142,19 @@ transition: 0.3s ease;
   padding-left: 10px;
   padding-bottom: 5px;
 }
+
+.impression2 {
+  font-size: 20px;
+  width: 520px;
+  font-family: "Hachi Maru Pop", cursive;
+  border: 2px solid;
+  background: transparent;
+  color: rgb(207, 128, 110);
+  border-radius: 6px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  min-height: 30px;
+  margin-left: 55px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}

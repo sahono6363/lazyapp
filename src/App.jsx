@@ -45,9 +45,6 @@ function App() {
   };
 
   const handleDelete = (index) => {
-    const item = list[index];
-    const impression = impressions[index] || "";
-    setCompletedList([...completedList, { ...item, impression }]);
     setlist(list.filter((_, i) => i !== index));
     setImpressions((prev) => {
       const newObj = { ...prev };
@@ -85,6 +82,7 @@ function App() {
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
                   <div className="category2">
+
                     {item.category === 0 ? (
                       <a
                         href={`https://www.youtube.com/results?search_query=${encodeURIComponent(
@@ -99,6 +97,7 @@ function App() {
                     ) : (
                       Categories[item.category].icon
                     )}
+
                   </div>
                   <div className="title2">{item.title}</div>
                   <div className="from2">{item.from}</div>
@@ -153,7 +152,7 @@ function App() {
                 <div className="title3">{item.title}</div>
                 <div className="from3">{item.from}</div>
                 {item.impression && (
-                  <div className="impression">{item.impression}</div>
+                  <div className="impression2">{item.impression}</div>
                 )}
                 <button
                   className="button3"
