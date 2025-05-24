@@ -33,7 +33,7 @@ function App() {
       <div className="app">
         <div className="list" style={{ display: "flex" }}>
           <div style={{ flex: 1 }}>
-            <h1>---やるかもしれないやつ---</h1>
+            <h1>―やるかもしれないやつ―</h1>
             <Input
               input={input}
               setInput={setInput}
@@ -64,7 +64,7 @@ function App() {
             ))}
           </div>
           <div className="complete" style={{ flex: 1 }}>
-            <h1>---おわったやつ---</h1>
+            <h1>―おわったやつ―</h1>
           </div>
         </div>
       </div>
