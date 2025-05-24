@@ -1,0 +1,32 @@
+.R{
+font-family: "Hachi Maru Pop";
+}
+.page1{
+    background: #fff;
+    border-radius: 12px;
+    width: 40vw;
+    height: 45vw;
+    color: #6e6457;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  }
+
+  .cat{
+    scale: 60%;
+  }
+
+.buttonR1{
+    color: white;
+    background-color: transparent;
+    border:none;
+    font-family: "Hachi Maru Pop";
+    font-size: 1.7vw;
+    margin-right: 10vw;
+    cursor: pointer;
+    transition: 0.3s;
+    display:flex;
+    flex-direction: column;
+}
+
+.buttonR1:hover{
+    transform: scale(1.2);
+}

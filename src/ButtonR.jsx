@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ButtonR.css"
 
 const ButtonR = ({ list }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -14,19 +15,16 @@ const ButtonR = ({ list }) => {
   const handleStart = () => {
     setShowStart(false);
     if (!list || list.length === 0) {
-      setRandomText("リストが空です");
-    } else {
-      const randomItem = list[Math.floor(Math.random() * list.length)];
-      setRandomText(randomItem.title || "タイトルなし");
+      setRandomText("なんもないよ");
     }
   };
 
   const closeModal = () => setModalOpen(false);
 
   return (
-    <>
-      <button className="buttonR" onClick={handleOpenModal}>
-        randam
+    <div className="R">
+      <button className="buttonR1" onClick={handleOpenModal}>
+        らんだむ
       </button>
       {modalOpen && (
         <div
@@ -44,22 +42,19 @@ const ButtonR = ({ list }) => {
           }}
           onClick={closeModal}
         >
-          <div
-            style={{
-              background: "#fff",
-              padding: "32px 48px",
-              borderRadius: "12px",
-              minWidth: "240px",
-              fontSize: "1.5rem",
-              color: "#6e6457",
-              boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
-            }}
+          <div className="page1"
             onClick={(e) => e.stopPropagation()}
           >
             {showStart ? (
-              <button className="buttonR" onClick={handleStart}>
-                スタート
-              </button>
+              <div>
+                <h2>たすくをたくす</h2>
+                <img className="cat" src="/dancing-cat.gif" />
+                <h3>タスクが溜まってるけど何からやろう...?</h3>
+                <h4>そんなときはこの猫にタスクを託してみましょう。</h4>
+                <button className="buttonR2" onClick={handleStart}>
+                  スタート
+                </button>
+              </div>
             ) : (
               <>
                 {randomText}
@@ -73,7 +68,7 @@ const ButtonR = ({ list }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

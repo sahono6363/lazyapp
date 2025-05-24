@@ -9,7 +9,7 @@ const Header = ({ list}) => {
       style={{
         backgroundColor: "#a2997f",
         color: "rgb(255, 255, 255)",
-        height: "4.17vw",
+        height: "4.5vw",
         paddingBottom: "0.35vw", 
         textAlign: "center",
         fontSize: "1.74vw", 
@@ -17,11 +17,12 @@ const Header = ({ list}) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+
         paddingLeft: "0.69vw",
       }}
     >
       <span style={{ marginLeft: "10px" }}>Someday List</span>
-      <div>
+      <div style={{display:"flex"}}>
         <ButtonR list={list} />
         <HeaderButtonS>select</HeaderButtonS>
       </div>
