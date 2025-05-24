@@ -130,7 +130,7 @@ function App() {
                 <div className="title3">{item.title}</div>
                 <div className="from3">{item.from}</div>
                 {item.impression && (
-                  <div className="impression">{item.impression}</div>
+                  <div className="impression2">{item.impression}</div>
                 )}
                 <button
                   className="button3"
