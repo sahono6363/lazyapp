@@ -6,16 +6,22 @@ import "./App.css";
 import "./complete.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Categories } from "./Input/Category";
-import { loadList, saveList } from "./storage";
+import { loadList, saveList } from "./Backends/storage";
+import { loadCompletedList, saveCompletedList } from "./Backends/completestrage";
 import { removeItemFromList } from "./delete";
 
 function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
   const [list, setlist] = useState(loadList());
+  const [completedList, setCompletedList] = useState(loadCompletedList());
 
   useEffect(() => {
     saveList(list);
   }, [list]);
+
+  useEffect(() => {
+    saveCompletedList(completedList);
+  }, [completedList]);
 
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
@@ -25,6 +31,12 @@ function App() {
 
   const handleDelete = (index) => {
     setlist(removeItemFromList(list, index));
+  };
+
+  const handleComplete = (index) => {
+    const item = list[index];
+    setCompletedList([...completedList, item]);
+    setlist(list.filter((_, i) => i !== index));
   };
 
   return (
@@ -60,11 +72,31 @@ function App() {
                 <button className="button2" onClick={() => handleDelete(i)}>
                   <DeleteIcon />
                 </button>
+                <button onClick={() => handleComplete(i)}>（仮）</button>
               </div>
             ))}
           </div>
           <div className="complete" style={{ flex: 1 }}>
             <h1>---おわったやつ---</h1>
+            {completedList.map((item, i) => (
+              <div key={i} style={{ display: "flex" }}>
+                <div className="category3">
+                  {Categories[item.category].icon}
+                </div>
+                <div className="title3">{item.title}</div>
+                <button
+                  className="button3"
+                  onClick={() => {
+                    const newCompleted = completedList.filter(
+                      (_, idx) => idx !== i
+                    );
+                    setCompletedList(newCompleted);
+                  }}
+                >
+                  <DeleteIcon />
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
