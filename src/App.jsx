@@ -17,6 +17,11 @@ function App() {
     saveList(list);
   }, [list]);
 
+  const handleSortByCategory = () => {
+    const sortedList = [...list].sort((a, b) => a.category - b.category);
+    setlist(sortedList);
+  };
+
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
     setlist([...list, { ...input, checked: false }]);
@@ -29,7 +34,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header onSortByCategory={handleSortByCategory} />
       <div className="app">
         <div className="list" style={{ display: "flex" }}>
           <div style={{ flex: 1 }}>
@@ -44,7 +49,20 @@ function App() {
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
                   <div className="category2">
-                    {Categories[item.category].icon}
+                    {item.category === 0 ? (
+                      <a
+                        href={`https://www.youtube.com/results?search_query=${encodeURIComponent(
+                          item.title
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        {Categories[item.category].icon}
+                      </a>
+                    ) : (
+                      Categories[item.category].icon
+                    )}
                   </div>
                   <div className="title2">{item.title}</div>
                   <div className="from2">{item.from}</div>
