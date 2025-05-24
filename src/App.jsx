@@ -14,6 +14,10 @@ function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
   const [list, setlist] = useState(loadList());
   const [completedList, setCompletedList] = useState(loadCompletedList());
+  const [impressions, setImpressions] = useState(() => {
+    const saved = localStorage.getItem("lazyapp-impressions");
+    return saved ? JSON.parse(saved) : {};
+  });
 
   useEffect(() => {
     saveList(list);
@@ -23,6 +27,10 @@ function App() {
     saveCompletedList(completedList);
   }, [completedList]);
 
+  useEffect(() => {
+    localStorage.setItem("lazyapp-impressions", JSON.stringify(impressions));
+  }, [impressions]);
+
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
     setlist([...list, { ...input, checked: false }]);
@@ -30,13 +38,27 @@ function App() {
   };
 
   const handleDelete = (index) => {
-    setlist(removeItemFromList(list, index));
+    const item = list[index];
+    const impression = impressions[index] || "";
+    setCompletedList([...completedList, { ...item, impression }]);
+    setlist(list.filter((_, i) => i !== index));
+    setImpressions((prev) => {
+      const newObj = { ...prev };
+      delete newObj[index];
+      return newObj;
+    });
   };
 
   const handleComplete = (index) => {
     const item = list[index];
-    setCompletedList([...completedList, item]);
+    const impression = impressions[index] || ""; 
+    setCompletedList([...completedList, { ...item, impression }]);
     setlist(list.filter((_, i) => i !== index));
+    setImpressions((prev) => {
+      const newObj = { ...prev };
+      delete newObj[index];
+      return newObj;
+    });
   };
 
   return (
@@ -56,7 +78,6 @@ function App() {
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
                   <div className="category2">
-                    {Categories[item.category].icon}
                   </div>
                   <div className="title2">{item.title}</div>
                   <div className="from2">{item.from}</div>
@@ -73,7 +94,6 @@ function App() {
                   <button className="button2" onClick={() => handleDelete(i)}>
                     <DeleteIcon />
                   </button>
-                <button onClick={() => handleComplete(i)}>（仮）</button>
                 </div>
                 <div>
                   {item.checked && (
@@ -81,9 +101,20 @@ function App() {
                       <textarea
                         className="impression"
                         placeholder="感想を入力"
+                        value={impressions[i] || ""}
+                        onChange={(e) =>
+                          setImpressions({
+                            ...impressions,
+                            [i]: e.target.value,
+                          })
+                        }
                       />
-                      <button type="submit" className="button3">
-                        →
+                      <button
+                        type="submit"
+                        className="button3"
+                        onClick={() => handleComplete(i)}
+                      >
+                        OK
                       </button>
                     </div>
                   )}
@@ -99,8 +130,12 @@ function App() {
                   {Categories[item.category].icon}
                 </div>
                 <div className="title3">{item.title}</div>
+                <div className="from3">{item.from}</div>
+                {item.impression && (
+                  <div className="impression">{item.impression}</div>
+                )}
                 <button
-                  cl3assName="button3"
+                  className="button3"
                   onClick={() => {
                     const newCompleted = completedList.filter(
                       (_, idx) => idx !== i
