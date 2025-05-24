@@ -38,9 +38,6 @@ function App() {
   };
 
   const handleDelete = (index) => {
-    const item = list[index];
-    const impression = impressions[index] || "";
-    setCompletedList([...completedList, { ...item, impression }]);
     setlist(list.filter((_, i) => i !== index));
     setImpressions((prev) => {
       const newObj = { ...prev };
@@ -78,6 +75,7 @@ function App() {
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
                   <div className="category2">
+                    {Categories[item.category]?.icon}
                   </div>
                   <div className="title2">{item.title}</div>
                   <div className="from2">{item.from}</div>
