@@ -13,7 +13,10 @@ import { removeItemFromList } from "./delete";
 function App() {
   const [input, setInput] = useState({ category: 0, title: "", from: "" });
   const [list, setlist] = useState(loadList());
+  const [originalList, setOriginalList] = useState(loadList());
+  const [isSorted, setIsSorted] = useState(false);
   const [completedList, setCompletedList] = useState(loadCompletedList());
+  const [isAlignMode, setIsAlignMode] = useState(true); 
   const [impressions, setImpressions] = useState(() => {
     const saved = localStorage.getItem("lazyapp-impressions");
     return saved ? JSON.parse(saved) : {};
@@ -22,6 +25,38 @@ function App() {
   useEffect(() => {
     saveList(list);
   }, [list]);
+
+  useEffect(() => {
+    if (!isSorted) {
+      setOriginalList(list);
+    }
+  }, [list, isSorted]);
+
+  const handleSortByCategory = () => {
+    if (!isSorted) {
+      const sortedList = [...list].sort((a, b) => a.category - b.category);
+      setlist(sortedList);
+      setIsSorted(true);
+    } else {
+      setlist(originalList);
+      setIsSorted(false);
+    }
+  };
+
+  const handleToggleSort = () => {
+    if (isAlignMode) {
+      const sortedList = [...list].sort((a, b) => a.category - b.category);
+      setlist(sortedList);
+      setIsSorted(true);
+    } else {
+      const sortedList = [...list].sort(
+        (a, b) => (a.addedAt ?? 0) - (b.addedAt ?? 0)
+      );
+      setlist(sortedList);
+      setIsSorted(true);
+    }
+    setIsAlignMode(!isAlignMode); 
+  };
 
   useEffect(() => {
     saveCompletedList(completedList);
@@ -33,8 +68,18 @@ function App() {
 
   const handleGo = () => {
     if (input.title === "" || input.from === "") return;
-    setlist([...list, { ...input, checked: false }]);
+    const newItem = {
+      ...input,
+      checked: false,
+      addedAt: Date.now(),
+    };
+    setlist([...list, newItem]);
     setInput({ category: 0, title: "", from: "" });
+
+    if (isSorted) {
+      setOriginalList([...originalList, { ...input, checked: false }]);
+    }
+    saveList([...list, newItem]);
   };
 
   const handleDelete = (index) => {
@@ -44,11 +89,25 @@ function App() {
       delete newObj[index];
       return newObj;
     });
+
+    if (isSorted) {
+      const deletedItem = list[index];
+      setOriginalList(
+        originalList.filter(
+          (item) =>
+            !(
+              item.title === deletedItem.title &&
+              item.from === deletedItem.from &&
+              item.category === deletedItem.category
+            )
+        )
+      );
+    }
   };
 
   const handleComplete = (index) => {
     const item = list[index];
-    const impression = impressions[index] || ""; 
+    const impression = impressions[index] || "";
     setCompletedList([...completedList, { ...item, impression }]);
     setlist(list.filter((_, i) => i !== index));
     setImpressions((prev) => {
@@ -56,11 +115,22 @@ function App() {
       delete newObj[index];
       return newObj;
     });
+
+    setOriginalList(
+      originalList.filter(
+        (oriItem) =>
+          !(
+            oriItem.title === item.title &&
+            oriItem.from === item.from &&
+            oriItem.category === item.category
+          )
+      )
+    );
   };
 
   return (
     <div>
-      <Header />
+      <Header onToggleSort={handleToggleSort} isAlignMode={isAlignMode} />
       <div className="app">
         <div className="list" style={{ display: "flex" }}>
           <div style={{ flex: 1 }}>
@@ -75,7 +145,20 @@ function App() {
               <React.Fragment key={i}>
                 <div style={{ display: "flex" }}>
                   <div className="category2">
-                    {Categories[item.category]?.icon}
+                    {item.category === 0 ? (
+                      <a
+                        href={`https://www.youtube.com/results?search_query=${encodeURIComponent(
+                          item.title
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        {Categories[item.category].icon}
+                      </a>
+                    ) : (
+                      Categories[item.category].icon
+                    )}
                   </div>
                   <div className="title2">{item.title}</div>
                   <div className="from2">{item.from}</div>
