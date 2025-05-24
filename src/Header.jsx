@@ -1,8 +1,8 @@
 import React from "react";
-import HeaderButtonR from "./ButtonR";
+import ButtonR from "./ButtonR";
 import HeaderButtonS from "./ButtonS";
 
-const Header = () => {
+const Header = ({ list}) => {
   return (
     <header
       className="hachi-maru-pop-regular"
@@ -22,7 +22,7 @@ const Header = () => {
     >
       <span style={{ marginLeft: "10px" }}>Someday List</span>
       <div>
-        <HeaderButtonR>random</HeaderButtonR>
+        <ButtonR list={list} />
         <HeaderButtonS>select</HeaderButtonS>
       </div>
     </header>

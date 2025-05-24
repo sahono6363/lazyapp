@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header list={list} />
       <div className="app">
         <div className="list" style={{ display: "flex" }}>
           <div style={{ flex: 1 }}>
