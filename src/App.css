@@ -1,40 +1,42 @@
 .list h1{
   font-size: 35px;
-  margin-left: 20px;
+  margin-left: 160px;
   margin-top: 15px;
-  color: #6a8b6a;
-  font-weight: bolder;
+  color:#6e6457;
+ font-weight: bolder;
   margin-bottom: 0px;
 }
 
 .list{
   font-family: "Hachi Maru Pop", cursive;
-  color: #645f37;
+  color: #6e6457;
 }
 
 .category2 {
   display: flex;
   margin-top: 20px;
-  margin-left: 70px;
+  margin-left: 65px;
 }
 .category2 svg{font-size: 40px;}
 
 .title2 {
   font-size: 20px;
-  width: 500px;
+  width: 452px;
   margin-top: 20px;
   height: 40px;
-  margin-left: 18px;
-  border-bottom: 2px solid #645f37;
+  margin-left: 16px;
+  padding-left: 10px;
+  border-bottom: 1.5px solid  #6e6457;
 }
 
 .from2 {
   font-size: 20px;
   width: 120px;
-  margin-left: 12px;
+  margin-left: 5px;
   margin-top: 20px;
   height: 40px;
-  border-bottom: 2px solid #645f37;
+  border-bottom: 1.5px solid  #6e6457;
+  padding-left: 10px;
 }
 
 .button2 {
@@ -48,7 +50,7 @@
   border-radius: 6px;
   margin-left: 5px;
   margin-right: 20px;
-  color: #645f37;
+  color: #6e6457;
   cursor: pointer;
   transition: 0.3s ease;
   
@@ -57,19 +59,60 @@
 
 .button2:hover {
   background: transparent;
-  color:rgb(207, 128, 110);
+  color:rgb(236, 101, 71);
   transform: scale(1.3);
 }
 
 .checkbox {
   width: 22px;
   height: 22px;
-  border: 3px solid #645f37;
+  border: 3px solid #6e6457;
   margin-left: 10px;
   margin-top: 30px;
   vertical-align: middle;
   cursor: pointer;
 }
 .checkbox:checked{
-  accent-color: #6a8b6a;
+  accent-color: #178270;
+  color: #ffffff;
+}
+.impression {
+  font-size: 20px;
+  width: 520px;
+  font-family: "Hachi Maru Pop", cursive;
+  border: 2px solid;
+  background: transparent;
+  color: rgb(207, 128, 110);
+  border-radius: 6px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  min-height: 30px;
+  margin-left: 55px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.button3{
+  padding-bottom: 5px;
+  margin-top: 20px;
+  height: 46px;
+  width: 46px;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: "Hachi Maru Pop", cursive;
+  background:#a2997f;
+  border: none;
+  border-radius: 6px;
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
+  transition: 0s ease;
+  border: 2px solid #a2997f;
+  transition: 0.3s ease;
+}
+
+.button3:hover{
+  background: transparent;
+  color: #a2997f;
+  border: 2px solid #a2997f;
 }
