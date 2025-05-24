@@ -17,6 +17,9 @@ function App() {
   const [isSorted, setIsSorted] = useState(false);
   const [completedList, setCompletedList] = useState(loadCompletedList());
   const [isAlignMode, setIsAlignMode] = useState(true); 
+  const sortedCompletedList = isAlignMode
+    ? [...completedList].sort((a, b) => (a.completedAt ?? 0) - (b.completedAt ?? 0))
+    : [...completedList].sort((a, b) => a.category - b.category);;
   const [impressions, setImpressions] = useState(() => {
     const saved = localStorage.getItem("lazyapp-impressions");
     return saved ? JSON.parse(saved) : {};
@@ -108,7 +111,7 @@ function App() {
   const handleComplete = (index) => {
     const item = list[index];
     const impression = impressions[index] || "";
-    setCompletedList([...completedList, { ...item, impression }]);
+    setCompletedList([...completedList, { ...item, impression, completedAt: Date.now()  }]);
     setlist(list.filter((_, i) => i !== index));
     setImpressions((prev) => {
       const newObj = { ...prev };
@@ -205,7 +208,7 @@ function App() {
           </div>
           <div className="complete" style={{ flex: 1 }}>
             <h1>---おわったやつ---</h1>
-            {completedList.map((item, i) => (
+            {sortedCompletedList.map((item, i) => (
               <div key={i} style={{ display: "flex" }}>
                 <div className="category3">
                   {Categories[item.category].icon}
