@@ -1,6 +1,5 @@
 import React from "react";
 import HeaderButtonR from "./ButtonR";
-import HeaderButtonS from "./ButtonS";
 import HeaderButtonA from "./ButtonA";
 
 const Header = ({ onToggleSort, isAlignMode }) => {
@@ -24,7 +23,6 @@ const Header = ({ onToggleSort, isAlignMode }) => {
       <span style={{ marginLeft: "10px" }}>Someday List</span>
       <div>
         <HeaderButtonR>random</HeaderButtonR>
-        <HeaderButtonS>select</HeaderButtonS>
         <HeaderButtonA onClick={onToggleSort}>
           {isAlignMode ? "align" : "normal"}
         </HeaderButtonA>
