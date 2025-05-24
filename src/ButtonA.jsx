@@ -1,9 +1,9 @@
 import React from "react";
 
-const HeaderButtonS = ({ children, ...props }) => (
+const HeaderButtonA = ({ children, ...props }) => (
   <button style={{ marginRight: "10px" }} {...props}>
     {children}
   </button>
 );
 
-export default HeaderButtonS;
+export default HeaderButtonA;

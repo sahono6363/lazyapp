@@ -1,8 +1,8 @@
 import React from "react";
 import ButtonR from "./ButtonR";
-import HeaderButtonS from "./ButtonS";
+import HeaderButtonA from "./ButtonA";
 
-const Header = ({ list}) => {
+const Header = ({ list, onToggleSort, isAlignMode }) => {
   return (
     <header
       className="hachi-maru-pop-regular"
@@ -24,7 +24,10 @@ const Header = ({ list}) => {
       <span style={{ marginLeft: "10px" }}>Someday List</span>
       <div style={{display:"flex"}}>
         <ButtonR list={list} />
-        <HeaderButtonS>select</HeaderButtonS>
+        <HeaderButtonA onClick={onToggleSort}>
+          {isAlignMode ? "align" : "normal"}
+        </HeaderButtonA>
+
       </div>
     </header>
   );
