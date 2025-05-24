@@ -1,17 +1,16 @@
 .app{
     background-color: white;
-    height: 100vh;
-    color:#354275;  
+    min-height: 100vh;
     font-family: "Hachi Maru Pop";
 }
 
 .title{
     font-size: 20px;
-    width: 500px;
+    width: 450px;
     font-family: "Hachi Maru Pop", cursive;
     border: none;
-    background:#ded9c7;
-    color: #645f37;
+    background:#cfdedf;
+    color: #6e6457;
     border-radius: 6px;
     margin-top: 20px;
     height: 40px;
@@ -28,8 +27,8 @@
     font-family: "Hachi Maru Pop", cursive;
     width: 120px;
     border: none;
-    background:#ded9c7;
-    color: #645f37;
+    background:#cfdedf;
+    color: #6e6457;
     margin-left: 5px;
     margin-top: 20px;
     height: 40px;
@@ -44,32 +43,32 @@
     font-size: 20px;
     font-weight: bolder;
     font-family: "Hachi Maru Pop", cursive;
-    background:#6a8b6a;
+    background:#a2997f;
     border: none;
     border-radius: 6px;
     margin-left: 5px;
     color: white;
     cursor: pointer;
     transition: 0s ease;
-    border: 2px solid #6a8b6a;
+    border: 2px solid #a2997f;
     transition: 0.3s ease;
 }
 
 .button:hover{
     background: transparent;
-    color: #6a8b6a;
-    border: 2px solid #6a8b6a;
+    color: #a2997f;
+    border: 2px solid #a2997f;
 }
 
 .title::placeholder,
 .from::placeholder {
     
-    color: #645f37;
+    color: #6e6457;
     opacity: 0.6;       
 }
 
 .title:focus,
 .from:focus
 {
-    outline: 2px solid #645f37;
+    outline: 2px solid #6e6457;
 }
