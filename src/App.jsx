@@ -138,8 +138,6 @@ function App() {
     <div>
       <Header
         list={list}
-        onToggleSort={handleToggleSort}
-        isAlignMode={isAlignMode}
       />
 
       <div className="app">
@@ -151,6 +149,8 @@ function App() {
               setInput={setInput}
               Categories={Categories}
               onGoClick={handleGo}
+              onToggleSort={handleToggleSort}
+              isAlignMode={isAlignMode}
             />
             {list.map((item, i) => (
               <React.Fragment key={i}>

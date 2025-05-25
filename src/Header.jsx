@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonR from "./ButtonR";
-import HeaderButtonA from "./ButtonA";
+
 
 const Header = ({ list, onToggleSort, isAlignMode }) => {
   return (
@@ -21,12 +21,10 @@ const Header = ({ list, onToggleSort, isAlignMode }) => {
         paddingLeft: "0.69vw",
       }}
     >
-      <span style={{ marginLeft: "10px" }}>Someday List</span>
+      <span style={{ marginLeft: "10px" }}>Someday List ～きっといつかやる～</span>
       <div style={{display:"flex"}}>
         <ButtonR list={list} />
-        <HeaderButtonA onClick={onToggleSort}>
-          {isAlignMode ? "align" : "normal"}
-        </HeaderButtonA>
+        
 
       </div>
     </header>

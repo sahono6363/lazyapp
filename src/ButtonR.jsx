@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ButtonR.css"
+import "./ButtonR.css";
 
 const ButtonR = ({ list }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,6 +16,17 @@ const ButtonR = ({ list }) => {
     setShowStart(false);
     if (!list || list.length === 0) {
       setRandomText("なんもないよ");
+    } else {
+      const randomItem = list[Math.floor(Math.random() * list.length)];
+      setRandomText(randomItem.title || "タイトルなし");
+    }
+  };
+  const handleRetry = () => {
+    if (!list || list.length === 0) {
+      setRandomText("なんもないよ");
+    } else {
+      const randomItem = list[Math.floor(Math.random() * list.length)];
+      setRandomText(randomItem.title || "タイトルなし");
     }
   };
 
@@ -42,26 +53,31 @@ const ButtonR = ({ list }) => {
           }}
           onClick={closeModal}
         >
-          <div className="page1"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div onClick={(e) => e.stopPropagation()}>
             {showStart ? (
-              <div>
+              <div className="page1">
                 <h2>たすくをたくす</h2>
                 <img className="cat" src="/dancing-cat.gif" />
-                <h3>タスクが溜まってるけど何からやろう...?</h3>
-                <h4>そんなときはこの猫にタスクを託してみましょう。</h4>
+                <h3>タスクがたまっているけど何からやろう...?</h3>
+                <h3>そんなときはこの猫にタスクを託してみましょう。</h3>
+                <h3>そのときのノリで１つ選んでくれます。</h3>
                 <button className="buttonR2" onClick={handleStart}>
-                  スタート
+                  たくす
                 </button>
               </div>
             ) : (
               <>
-                {randomText}
-                <div>
-                  <button className="closeButton" onClick={closeModal}>
-                    もどる
-                  </button>
+                <div className="page2">
+                  <img className="wow" src="/集中線.gif" />
+                  <div className="randomT">{randomText}</div>
+                  <div style={{ display: "flex" }}>
+                    <button className="buttonR3" onClick={handleRetry}>
+                      やりなおし
+                    </button>
+                    <button className="buttonR3" onClick={closeModal}>
+                      もどる
+                    </button>
+                  </div>
                 </div>
               </>
             )}

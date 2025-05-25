@@ -46,7 +46,6 @@
     border: none;
     border-radius: 0.42vw;
     margin-left: 0.35vw;
-    margin-right: 6.0vw;
     color: white;
     cursor: pointer;
     transition: 0s ease;
@@ -69,4 +68,30 @@
 .title:focus,
 .from:focus {
     outline: 0.14vw solid #6e6457;
+}
+
+.buttonA{
+    padding-bottom: 0.35vw;
+    margin-top: 1.39vw;
+    padding-top: 0.7vw;
+    height: 3.19vw;
+    width: 3.19vw;
+    font-size: 1.39vw;
+    font-weight: bolder;
+    font-family: "Hachi Maru Pop", cursive;
+    background: #cfdedf;
+    border: none;
+    border-radius: 0.42vw;
+    margin-left: 0.35vw;
+    margin-right: 6.0vw;
+    border: 0.14vw solid  #cfdedf;
+    color: #6e6457;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.buttonA:hover{
+    background: transparent;
+    color: #a2997f;
+    border: 0.14vw solid #a2997f;
 }
