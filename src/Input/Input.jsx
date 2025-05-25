@@ -5,7 +5,13 @@ import From from "./From";
 import GoButton from "./GoButton";
 
 const Input = ({ input, setInput, Categories, onGoClick }) => (
-  <div style={{ display: "flex", alignItems: "center" }}>
+  <form
+    style={{ display: "flex", alignItems: "center" }}
+    onSubmit={e => {
+      e.preventDefault(); 
+      onGoClick();
+    }}
+  >
     <Category
       selected={input.category}
       setSelected={(cat) => setInput({ ...input, category: cat })}
@@ -16,10 +22,8 @@ const Input = ({ input, setInput, Categories, onGoClick }) => (
       setTitle={(title) => setInput({ ...input, title })}
     />
     <From from={input.from} setFrom={(from) => setInput({ ...input, from })} />
-
-    <GoButton onClick={onGoClick} />
-
-  </div>
+    <GoButton onClick={onGoClick} type="submit" />
+  </form>
 );
 
 export default Input;
