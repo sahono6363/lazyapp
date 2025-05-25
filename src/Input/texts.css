@@ -80,14 +80,13 @@
     font-weight: bolder;
     font-family: "Hachi Maru Pop", cursive;
     background: #cfdedf;
-    border: none;
     border-radius: 0.42vw;
     margin-left: 0.35vw;
-    margin-right: 6.0vw;
     border: 0.14vw solid  #cfdedf;
     color: #6e6457;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-right: 0vw;
 }
 
 .buttonA:hover{
