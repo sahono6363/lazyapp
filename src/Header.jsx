@@ -20,7 +20,7 @@ const Header = ({ onToggleSort, isAlignMode }) => {
         paddingLeft: "10px",
       }}
     >
-      <span style={{ marginLeft: "10px" }}>Someday List</span>
+      <span style={{ marginLeft: "10px" }}>Someday List ～きっといつかやる～</span>
       <div>
         <HeaderButtonR>random</HeaderButtonR>
         <HeaderButtonA onClick={onToggleSort}>
