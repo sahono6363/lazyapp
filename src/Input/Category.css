@@ -1,18 +1,18 @@
 .box {
   display: flex;
-  border-radius: 6px;
-  margin-top: 20px;
-  margin-left: 40px;
+  border-radius: 0.42vw;
+  margin-top: 1.39vw;
+  margin-left: 2.2vw;
   border: none;
 }
 
 .select {
-  width: 76px;
-  height: 45px;
-  background:#cfdedf;
-  border-radius: 6px;
+  width: 5.7vw;
+  height: 3.13vw;
+  background: #cfdedf;
+  border-radius: 0.42vw;
   border: none;
-  padding-top: 5px;
+  padding-top: 0.35vw;
 }
 
 .menuitem {
@@ -25,6 +25,9 @@
   color: #6e6457;
 }
 .categories svg {
-  font-size: 30px;
+  font-size: 2.08vw;
 }
 
+a{
+ color: #6e6457;
+}

@@ -3,12 +3,22 @@ import { Categories } from "./Category";
 import Title from "./Title";
 import From from "./From";
 import GoButton from "./GoButton";
+import HeaderButtonA from "../ButtonA";
+import SwapVertIcon from "@mui/icons-material/SwapVert";
+import ClearIcon from '@mui/icons-material/Clear';
 
-const Input = ({ input, setInput, Categories, onGoClick }) => (
+const Input = ({
+  input,
+  setInput,
+  Categories,
+  onGoClick,
+  onToggleSort,
+  isAlignMode,
+}) => (
   <form
     style={{ display: "flex", alignItems: "center" }}
-    onSubmit={e => {
-      e.preventDefault(); 
+    onSubmit={(e) => {
+      e.preventDefault();
       onGoClick();
     }}
   >
@@ -23,6 +33,9 @@ const Input = ({ input, setInput, Categories, onGoClick }) => (
     />
     <From from={input.from} setFrom={(from) => setInput({ ...input, from })} />
     <GoButton onClick={onGoClick} type="submit" />
+    <HeaderButtonA onClick={onToggleSort}>
+      {isAlignMode ? <SwapVertIcon/> : <ClearIcon/>}
+    </HeaderButtonA>
   </form>
 );
 
